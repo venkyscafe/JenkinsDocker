@@ -23,7 +23,7 @@ node('DOTNETCORE'){
 	stage('Package'){
 		echo 'Zip it up'
         sh 'dotnet publish ConsoleApp2 -c Release -o out'
-        archiveArtifacts artifacts: 'ConsoleApp2/out/**/*.*'
+        archiveArtifacts artifacts: 'ConsoleApp2/*.*'
 	}
 	stage('Deploy'){
 		echo 'Push to deployment'
