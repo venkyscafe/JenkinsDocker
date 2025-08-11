@@ -9,11 +9,12 @@ node('DOTNETCORE'){
             userRemoteConfigs: [[url: 'https://github.com/venkyscafe/JenkinsDocker']]])
 	}
 	stage('Build'){
-		try{
-		sh 'dotnet build ConsoleApp1'
-		}finally{
-			archiveArtifacts artifacts: 'ConsoleApp1/*.*'
-		}
+        sh 'dotnet build ConsoleApp1'
+		// try{
+		// sh 'dotnet build ConsoleApp1'
+		// }finally{
+		// 	archiveArtifacts artifacts: 'ConsoleApp1/*.*'
+		// }
 	}
 	stage('Test'){
 		echo 'Execute unit tests'
