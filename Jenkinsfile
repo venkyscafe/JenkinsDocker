@@ -13,7 +13,7 @@ node('DOTNETCORE'){
 		try{
 		sh 'dotnet build ConsoleApp2'
 		}finally{
-			archiveArtifacts artifacts: 'ConsoleApp2/bin/Debug/net6.0/**/*.*'
+			archiveArtifacts artifacts: 'ConsoleApp2/*.*'
 		}
 	}
 	stage('Test'){	
