@@ -10,11 +10,11 @@ node('DOTNETCORE'){
 	}
 	stage('Build'){
         sh 'dotnet build ConsoleApp2'
-		// try{
-		// sh 'dotnet build ConsoleApp2'
-		// }finally{
-		// 	archiveArtifacts artifacts: 'ConsoleApp2/bin/Debug/net6.0/**/*.*'
-		// }
+		try{
+		sh 'dotnet build ConsoleApp2'
+		}finally{
+			archiveArtifacts artifacts: 'ConsoleApp2/bin/Debug/net6.0/**/*.*'
+		}
 	}
 	stage('Test'){	
 		echo 'Execute unit tests'
