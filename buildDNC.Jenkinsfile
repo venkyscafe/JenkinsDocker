@@ -14,7 +14,7 @@ node('docker'){
 		dockerImage = docker.build('v3nkys/agent-dnc:v' + env.BUILD_NUMBER, '.');
 	}
 	stage('push'){
-		docker.withRegistry('https://index.docker.io/v1/', 'dockerhubcreds'){
+		docker.withRegistry('', 'dockerhubcreds'){
 			dockerImage.push();
 		}
 	}
