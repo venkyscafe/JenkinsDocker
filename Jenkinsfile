@@ -20,18 +20,18 @@ node('DOTNETCORE'){
 	}
 	stage('Test'){
 		echo 'Execute unit tests'
-        // sh 'dotnet test ConsoleApp2'
+        sh 'dotnet test ConsoleApp2'
 	}
 	stage('Package'){
 		echo 'Zip it up'
-        // sh 'dotnet publish ConsoleApp2 -c Release -o out'
-        // archiveArtifacts artifacts: 'ConsoleApp2/*.*'
+        sh 'dotnet publish ConsoleApp2 -c Release -o out'
+        archiveArtifacts artifacts: 'ConsoleApp2/*.*'
 	}
 	stage('Deploy'){
 		echo 'Push to deployment'
 	}
 	stage('Archive'){
-        // archiveArtifacts artifacts: 'ConsoleApp2/bin/Debug/net6.0/**/*.*'
-		archiveArtifacts artifacts: 'ConsoleApp2/*.*'
+        archiveArtifacts artifacts: 'ConsoleApp2/bin/Debug/net6.0/**/*.*'
+		// archiveArtifacts artifacts: 'ConsoleApp2/*.*'
 	}	
 }
